@@ -161,9 +161,27 @@
     padding:18px;border-top:1px solid var(--line);margin-top:10px;
   }
   footer b{color:var(--navy)}
+
+  /* ---------- Full UI language switching ---------- */
+  body.lang-en .t-ar{display:none!important}
+  body.lang-ar .t-en{display:none!important}
+  body.lang-both nav.tabs .t-en{display:none!important}
+  body.lang-both .note .t-en{display:none!important}
+  body.lang-both .btn .t-en{display:none!important}
+  body.lang-both footer .t-en{display:none!important}
+  body.lang-en .lbl{display:none}
+  body.lang-ar .lbl-en{display:none}
+  body.lang-en .lbl-en{font-size:13.5px;font-weight:700;color:var(--navy)}
+  body.lang-en .card-h h2{display:none}
+  body.lang-ar .card-h .en{display:none}
+  body.lang-en .card-h .en{font-size:14.5px;font-weight:700;color:#fff;letter-spacing:.4px}
+  body.lang-en .hdr-titles h1{display:none}
+  body.lang-ar .hdr-titles .en{display:none}
+  body.lang-en .hdr-titles .en{font-size:17px;letter-spacing:1px;color:#fff;font-weight:700;text-transform:none}
+  body.lang-en .field label .t-en{font-weight:700;color:var(--navy);font-size:12.5px}
 </style>
 </head>
-<body>
+<body class="lang-both">
 
 <header>
   <div class="hdr-row">
@@ -184,7 +202,7 @@
 
   <div class="vessel-bar">
     <div class="field grow">
-      <label>اسم السفينة <small>Vessel Name (M/V)</small></label>
+      <label><span class="t-ar">اسم السفينة</span><span class="t-en"> Vessel Name (M/V)</span></label>
       <input type="text" id="vessel" list="fleet" placeholder="مثال: RIZIK BEY" autocomplete="off">
       <datalist id="fleet">
         <option value="GIVING"><option value="PRINCE AMIN"><option value="RIZIK BEY">
@@ -198,7 +216,7 @@
       </datalist>
     </div>
     <div class="field">
-      <label>لغة التقرير <small>Report Language</small></label>
+      <label><span class="t-ar">اللغة</span><span class="t-en"> Language</span></label>
       <div class="lang-seg" id="langSeg">
         <button data-lang="both" class="active">عربي + English</button>
         <button data-lang="en">English</button>
@@ -208,13 +226,16 @@
   </div>
 
   <nav class="tabs" id="tabs">
-    <span class="part-tag">Part A — Northbound (Mediterranean → Black Sea) | القسم الأول — شمالاً</span>
-    <button data-tab="t1" class="active"><span class="num">1</span> عبور الدردنيل شمالاً</button>
-    <button data-tab="t2"><span class="num">2</span> مخطاف إسطنبول — تقرير الوصول</button>
-    <button data-tab="t3"><span class="num">3</span> البوسفور — الإشعار المسبق</button>
-    <button data-tab="t4"><span class="num">4</span> عبور البوسفور شمالاً</button>
-    <span class="part-tag">Part B — Southbound (Black Sea → Mediterranean) | القسم الثاني — جنوباً</span>
-    <button data-tab="t5"><span class="num">5</span> عبور البوسفور جنوباً</button>
+    <span class="part-tag"><span class="t-ar">القسم الأول — من البحر المتوسط إلى البحر الأسود (شمالاً)</span><span class="t-en">Part A — Mediterranean → Black Sea (Northbound)</span></span>
+    <button data-tab="t1" class="active"><span class="num">1</span> <span class="t-ar">عبور الدردنيل شمالاً</span><span class="t-en">Dardanelles Northbound</span></button>
+    <button data-tab="t2"><span class="num">2</span> <span class="t-ar">مخطاف إسطنبول — تقرير الوصول</span><span class="t-en">Istanbul Anchorage — Arrival</span></button>
+    <button data-tab="t3"><span class="num">3</span> <span class="t-ar">البوسفور — الإشعار المسبق</span><span class="t-en">Bosphorus — Pre-Advice</span></button>
+    <button data-tab="t4"><span class="num">4</span> <span class="t-ar">عبور البوسفور شمالاً</span><span class="t-en">Bosphorus Northbound</span></button>
+    <span class="part-tag"><span class="t-ar">القسم الثاني — من البحر الأسود إلى البحر المتوسط (جنوباً)</span><span class="t-en">Part B — Black Sea → Mediterranean (Southbound)</span></span>
+    <button data-tab="t3"><span class="num">1</span> <span class="t-ar">البوسفور — الإشعار المسبق</span><span class="t-en">Bosphorus — Pre-Advice</span></button>
+    <button data-tab="t5"><span class="num">2</span> <span class="t-ar">عبور البوسفور جنوباً</span><span class="t-en">Bosphorus Southbound</span></button>
+    <button data-tab="t2"><span class="num">3</span> <span class="t-ar">مخطاف إسطنبول — تقرير الوصول</span><span class="t-en">Istanbul Anchorage — Arrival</span></button>
+    <button data-tab="t6"><span class="num">4</span> <span class="t-ar">عبور الدردنيل جنوباً</span><span class="t-en">Dardanelles Southbound</span></button>
   </nav>
 
   <!-- ============ 1) DARDANELLES NORTHBOUND ============ -->
@@ -225,7 +246,7 @@
         <span class="en">DARDANELLES NORTHBOUND — Aegean → Istanbul</span>
       </div>
       <div class="card-b">
-        <div class="note">يُرسَل التقرير الكامل <b>فور الخروج من الدردنيل مباشرة</b>. جميع الأوقات فعلية لا تقديرية.</div>
+        <div class="note"><span class="t-ar">يُرسَل التقرير الكامل <b>فور الخروج من الدردنيل مباشرة</b>. جميع الأوقات فعلية لا تقديرية.</span><span class="t-en">Send the complete report <b>IMMEDIATELY upon clearing the Dardanelles</b>. All times must be ACTUAL — not estimates.</span></div>
         <div class="item"><span class="badge">1</span><div class="item-body">
           <span class="lbl">وقت الاتصال بـ VTS عند 12 ميلاً بحرياً</span>
           <span class="lbl-en">VTS contacted at 12 NM</span>
@@ -257,8 +278,8 @@
       <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
       <div class="preview" id="p1"></div>
       <div class="actions">
-        <button class="btn btn-gold" onclick="copyReport('p1',this)">📋 نسخ التقرير</button>
-        <button class="btn btn-ghost" onclick="clearTab('t1')">مسح الحقول</button>
+        <button class="btn btn-gold" onclick="copyReport('p1',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t1')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -271,7 +292,7 @@
         <span class="en">ISTANBUL ANCHORAGE — ARRIVAL REPORT</span>
       </div>
       <div class="card-b">
-        <div class="note">يُرسَل <b>فور الوصول وإلقاء المرساة</b> في مخطاف إسطنبول — الوقت الفعلي وليس التقديري.</div>
+        <div class="note"><span class="t-ar">يُرسَل <b>فور الوصول وإلقاء المرساة</b> في مخطاف إسطنبول — الوقت الفعلي وليس التقديري.</span><span class="t-en">Send <b>immediately upon arrival and dropping anchor</b> at Istanbul Anchorage — ACTUAL time, not an estimate.</span></div>
         <div class="item"><span class="badge">1</span><div class="item-body">
           <span class="lbl">التاريخ والوقت الفعليان للرسو</span>
           <span class="lbl-en">Actual date &amp; time of dropping anchor</span>
@@ -288,8 +309,8 @@
       <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
       <div class="preview" id="p2"></div>
       <div class="actions">
-        <button class="btn btn-gold" onclick="copyReport('p2',this)">📋 نسخ التقرير</button>
-        <button class="btn btn-ghost" onclick="clearTab('t2')">مسح الحقول</button>
+        <button class="btn btn-gold" onclick="copyReport('p2',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t2')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -302,7 +323,7 @@
         <span class="en">BOSPHORUS PASSAGE — PRE-ADVICE</span>
       </div>
       <div class="card-b">
-        <div class="note">يُرسَل هذا الإشعار <b>قبل دخول البوسفور — وليس بعده</b>.</div>
+        <div class="note"><span class="t-ar">يُرسَل هذا الإشعار <b>قبل دخول البوسفور — وليس بعده</b>.</span><span class="t-en">This advice must be sent <b>BEFORE entering the Bosphorus — not after</b>.</span></div>
         <div class="item"><span class="badge">1</span><div class="item-body">
           <span class="lbl">الوقت المقرَّر لدخول البوسفور</span>
           <span class="lbl-en">Scheduled Bosphorus entry date &amp; time</span>
@@ -314,8 +335,8 @@
       <div class="card-h"><h2>معاينة الإشعار</h2><span class="en">Pre-Advice Preview</span></div>
       <div class="preview" id="p3"></div>
       <div class="actions">
-        <button class="btn btn-gold" onclick="copyReport('p3',this)">📋 نسخ الإشعار</button>
-        <button class="btn btn-ghost" onclick="clearTab('t3')">مسح الحقول</button>
+        <button class="btn btn-gold" onclick="copyReport('p3',this)"><span class="t-ar">📋 نسخ الإشعار</span><span class="t-en">📋 Copy Advice</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t3')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -362,8 +383,8 @@
       <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
       <div class="preview" id="p4"></div>
       <div class="actions">
-        <button class="btn btn-gold" onclick="copyReport('p4',this)">📋 نسخ التقرير</button>
-        <button class="btn btn-ghost" onclick="clearTab('t4')">مسح الحقول</button>
+        <button class="btn btn-gold" onclick="copyReport('p4',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t4')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -376,7 +397,7 @@
         <span class="en">BOSPHORUS SOUTHBOUND — Black Sea → Istanbul</span>
       </div>
       <div class="card-b">
-        <div class="note">يُرسَل التقرير الكامل <b>فور الخروج من البوسفور مباشرة</b>. ينطبق على هذه الرحلة أيضاً تقرير الوصول (٢) والإشعار المسبق (٣).</div>
+        <div class="note"><span class="t-ar">يُرسَل التقرير الكامل <b>فور الخروج من البوسفور مباشرة</b>.</span><span class="t-en">Send the complete report <b>IMMEDIATELY upon clearing the Bosphorus</b>.</span></div>
         <div class="item"><span class="badge">1</span><div class="item-body">
           <span class="lbl">وقت الاتصال بـ VTS عند 12 ميلاً بحرياً</span>
           <span class="lbl-en">VTS contacted at 12 NM</span>
@@ -428,8 +449,58 @@
       <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
       <div class="preview" id="p5"></div>
       <div class="actions">
-        <button class="btn btn-gold" onclick="copyReport('p5',this)">📋 نسخ التقرير</button>
-        <button class="btn btn-ghost" onclick="clearTab('t5')">مسح الحقول</button>
+        <button class="btn btn-gold" onclick="copyReport('p5',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t5')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ 6) DARDANELLES SOUTHBOUND ============ -->
+  <section class="panel" id="t6">
+    <div class="card">
+      <div class="card-h">
+        <h2>٦ — عبور الدردنيل جنوباً</h2>
+        <span class="en">DARDANELLES SOUTHBOUND — Istanbul → Aegean Sea</span>
+      </div>
+      <div class="card-b">
+        <div class="note"><span class="t-ar">يُرسَل التقرير الكامل <b>فور الخروج من الدردنيل مباشرة</b>. جميع الأوقات فعلية لا تقديرية.</span><span class="t-en">Send the complete report <b>IMMEDIATELY upon clearing the Dardanelles</b>. All times must be ACTUAL — not estimates.</span></div>
+        <div class="item"><span class="badge">1</span><div class="item-body">
+          <span class="lbl">وقت الاتصال بـ VTS عند 12 ميلاً بحرياً</span>
+          <span class="lbl-en">VTS contacted at 12 NM</span>
+          <div class="dt-row"><input type="date" id="d6_1d"><input type="time" id="d6_1t"></div>
+        </div></div>
+        <div class="item"><span class="badge">2</span><div class="item-body">
+          <span class="lbl">وقت الوصول ودخول الدردنيل</span>
+          <span class="lbl-en">Vessel arrived and entered Dardanelles</span>
+          <div class="dt-row"><input type="date" id="d6_2d"><input type="time" id="d6_2t"></div>
+        </div></div>
+        <div class="item"><span class="badge">3</span><div class="item-body">
+          <span class="lbl">وقت المرور بشنق قلعة (چاناكالي)</span>
+          <span class="lbl-en">Passed Çanakkale</span>
+          <div class="dt-row"><input type="date" id="d6_3d"><input type="time" id="d6_3t"></div>
+        </div></div>
+        <div class="item"><span class="badge">4</span><div class="item-body">
+          <span class="lbl">وقت الخروج من الدردنيل دون مرشد</span>
+          <span class="lbl-en">Cleared Dardanelles without pilot</span>
+          <div class="dt-row"><input type="date" id="d6_4d"><input type="time" id="d6_4t"></div>
+        </div></div>
+        <div class="item"><span class="badge">5</span><div class="item-body">
+          <span class="lbl">الميناء التالي والوقت المتوقَّع للوصول (ETA)</span>
+          <span class="lbl-en">Next port &amp; ETA</span>
+          <div class="dt-row">
+            <input type="text" id="d6_5p" placeholder="NEXT PORT" style="width:170px;text-transform:uppercase">
+            <input type="date" id="d6_5d"><input type="time" id="d6_5t">
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="card preview-card">
+      <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
+      <div class="preview" id="p6"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="copyReport('p6',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t6')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -438,7 +509,7 @@
 
 <footer>
   <b>Y SHIP Management</b> — Maritime Circular Ref 9/2026 &nbsp;•&nbsp; ASRA SHIPPING Agency, Istanbul — Coordinator: Eng. Mohammad Tartousi<br>
-  جميع الأوقات المبلَّغ عنها يجب أن تكون أوقاتاً فعلية — لا تقديرية — فور وقوع الحدث.
+  <span class="t-ar">جميع الأوقات المبلَّغ عنها يجب أن تكون أوقاتاً فعلية — لا تقديرية — فور وقوع الحدث.</span><span class="t-en">All reported times must be ACTUAL times — not estimates — as soon as the relevant event has occurred.</span>
 </footer>
 
 <script>
@@ -659,7 +730,44 @@ Master of M/V ${vessel()}`;
   return {en, ar};
 }
 
-const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5};
+function build6(){
+  const a=dt('d6_1'),b=dt('d6_2'),c=dt('d6_3'),e=dt('d6_4'),f=dt('d6_5');
+  const portEn = $('d6_5p').value.trim().toUpperCase() || `<span class="ph">[NEXT PORT]</span>`;
+  const portAr = $('d6_5p').value.trim().toUpperCase() || phAr('[الميناء التالي]');
+  const en = `M/V ${vessel()} — DARDANELLES SOUTHBOUND
+
+Good day,
+
+Please find below the actual times of Dardanelles passage:
+
+- ${a.d} — ${a.t} hrs: VTS contacted at 12 NM.
+- ${b.d} — ${b.t} hrs: Vessel arrived and entered Dardanelles.
+- ${c.d} — ${c.t} hrs: Passed Çanakkale.
+- ${e.d} — ${e.t} hrs: Cleared Dardanelles without pilot.
+
+ETA ${portEn}: ${f.d} — ${f.t} hrs.
+
+Best regards,
+Master of M/V ${vessel()}`;
+  const ar = `M/V ${vessel()} — عبور الدردنيل جنوباً
+
+تحية طيبة،
+
+نوافيكم أدناه بالأوقات الفعلية لعبور مضيق الدردنيل:
+
+- بتاريخ ${a.d} — الساعة ${a.t}: الاتصال بمحطة VTS عند مسافة 12 ميلاً بحرياً.
+- بتاريخ ${b.d} — الساعة ${b.t}: وصول السفينة ودخولها مضيق الدردنيل.
+- بتاريخ ${c.d} — الساعة ${c.t}: المرور بشنق قلعة (چاناكالي).
+- بتاريخ ${e.d} — الساعة ${e.t}: الخروج من الدردنيل وإتمام العبور دون مرشد.
+
+الوقت المتوقَّع للوصول إلى ${portAr}: ${f.d} — الساعة ${f.t}.
+
+مع فائق الاحترام،
+ربان السفينة M/V ${vessel()}`;
+  return {en, ar};
+}
+
+const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5,p6:build6};
 
 /* ---------- Render ---------- */
 function renderAll(){
@@ -680,12 +788,36 @@ function renderAll(){
 }
 
 /* ---------- Language toggle ---------- */
+const PLACEHOLDERS = {
+  vessel: {both:'مثال: RIZIK BEY', ar:'مثال: RIZIK BEY', en:'e.g. RIZIK BEY'},
+  d2_2h:  {both:'عدد الساعات', ar:'عدد الساعات', en:'Hours'},
+  d5_7o:  {both:'تفاصيل أخرى (اختياري)', ar:'تفاصيل أخرى (اختياري)', en:'Other details (optional)'}
+};
+const PURPOSE_OPTS = {
+  both:['— اختر الغرض —','BUNKERING — تزوّد بالوقود','CREW CHANGE — تبديل طاقم','SPARES DELIVERY — استلام قطع غيار','PROVISIONS — تموين','OTHER — غير ذلك'],
+  ar:  ['— اختر الغرض —','تزوّد بالوقود','تبديل طاقم','استلام قطع غيار','تموين','غير ذلك (اكتب بجانبه)'],
+  en:  ['— Select purpose —','BUNKERING','CREW CHANGE','SPARES DELIVERY','PROVISIONS','OTHER']
+};
+function applyLang(){
+  document.body.classList.remove('lang-both','lang-en','lang-ar');
+  document.body.classList.add('lang-'+LANG);
+  const rtl = (LANG !== 'en');
+  document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+  document.documentElement.lang = rtl ? 'ar' : 'en';
+  for(const [id,tr] of Object.entries(PLACEHOLDERS)){
+    if($(id)) $(id).placeholder = tr[LANG];
+  }
+  const sel = $('d5_7p');
+  const labels = PURPOSE_OPTS[LANG];
+  [...sel.options].forEach((opt,i)=>{ opt.text = labels[i]; });
+  renderAll();
+}
 document.querySelectorAll('#langSeg button').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('#langSeg button').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     LANG = btn.dataset.lang;
-    renderAll();
+    applyLang();
   });
 });
 
@@ -694,10 +826,10 @@ function copyReport(pid, btn){
   const blocks = [...$(pid).querySelectorAll('.pv-block')].map(b=>b.innerText.trim());
   const text = blocks.join('\n\n' + '─'.repeat(30) + '\n\n');
   const done = () => {
-    const old = btn.textContent;
-    btn.textContent = '✓ تم النسخ';
+    const old = btn.innerHTML;
+    btn.textContent = (LANG === 'en') ? '\u2713 Copied' : '\u2713 تم النسخ';
     btn.classList.add('copied');
-    setTimeout(()=>{btn.textContent = old; btn.classList.remove('copied');},1600);
+    setTimeout(()=>{btn.innerHTML = old; btn.classList.remove('copied');},1600);
   };
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
@@ -707,7 +839,7 @@ function fallbackCopy(text,done){
   const ta = document.createElement('textarea');
   ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
   document.body.appendChild(ta); ta.select();
-  try{document.execCommand('copy'); done();}catch(e){alert('تعذّر النسخ — انسخ النص يدوياً.');}
+  try{document.execCommand('copy'); done();}catch(e){alert((LANG==='en')?'Copy failed \u2014 please copy the text manually.':'تعذّر النسخ \u2014 انسخ النص يدوياً.');}
   document.body.removeChild(ta);
 }
 
@@ -729,7 +861,7 @@ document.querySelectorAll('nav.tabs button').forEach(btn=>{
 
 /* ---------- Live updates ---------- */
 document.addEventListener('input', renderAll);
-renderAll();
+applyLang();
 </script>
 </body>
 </html>
