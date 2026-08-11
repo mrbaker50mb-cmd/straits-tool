@@ -296,11 +296,12 @@
     <button data-tab="t9"><span class="num">4</span> <span class="t-ar">الجاهزية والإشعار المسبق — البوسفور</span><span class="t-en">Readiness &amp; Pre-Advice — Bosphorus</span></button>
     <button data-tab="t4"><span class="num">5</span> <span class="t-ar">عبور البوسفور شمالاً</span><span class="t-en">Bosphorus Northbound</span></button>
     <span class="part-tag"><span class="t-ar">القسم الثاني — من البحر الأسود إلى البحر المتوسط (جنوباً)</span><span class="t-en">Part B — Black Sea → Mediterranean (Southbound)</span></span>
-    <button data-tab="t9"><span class="num">1</span> <span class="t-ar">الجاهزية والإشعار المسبق — البوسفور</span><span class="t-en">Readiness &amp; Pre-Advice — Bosphorus</span></button>
-    <button data-tab="t5"><span class="num">2</span> <span class="t-ar">عبور البوسفور جنوباً</span><span class="t-en">Bosphorus Southbound</span></button>
-    <button data-tab="t2"><span class="num">3</span> <span class="t-ar">مخطاف إسطنبول — تقرير الوصول</span><span class="t-en">Istanbul Anchorage — Arrival</span></button>
-    <button data-tab="t7"><span class="num">4</span> <span class="t-ar">الدردنيل — الإشعار المسبق</span><span class="t-en">Dardanelles — Pre-Advice</span></button>
-    <button data-tab="t6"><span class="num">5</span> <span class="t-ar">عبور الدردنيل جنوباً</span><span class="t-en">Dardanelles Southbound</span></button>
+    <button data-tab="t10"><span class="num">1</span> <span class="t-ar">منطقة الانتظار — البوسفور</span><span class="t-en">Bosphorus Waiting Area</span></button>
+    <button data-tab="t3"><span class="num">2</span> <span class="t-ar">البوسفور — الإشعار المسبق</span><span class="t-en">Bosphorus — Pre-Advice</span></button>
+    <button data-tab="t5"><span class="num">3</span> <span class="t-ar">عبور البوسفور جنوباً</span><span class="t-en">Bosphorus Southbound</span></button>
+    <button data-tab="t11"><span class="num">4</span> <span class="t-ar">تقرير العبور والوصول للمخطاف</span><span class="t-en">Passage &amp; Anchorage Arrival</span></button>
+    <button data-tab="t7"><span class="num">5</span> <span class="t-ar">الدردنيل — الإشعار المسبق</span><span class="t-en">Dardanelles — Pre-Advice</span></button>
+    <button data-tab="t6"><span class="num">6</span> <span class="t-ar">عبور الدردنيل جنوباً</span><span class="t-en">Dardanelles Southbound</span></button>
   </nav>
 
   <!-- ============ 8) DARDANELLES WAITING AREA — ARRIVAL ============ -->
@@ -553,6 +554,47 @@
     </div>
   </section>
 
+  <!-- ============ 10) BOSPHORUS WAITING AREA (BLACK SEA) — ARRIVAL ============ -->
+  <section class="panel" id="t10">
+    <div class="card">
+      <div class="card-h">
+        <h2>١ — منطقة الانتظار — البوسفور (البحر الأسود)</h2>
+        <span class="en">BOSPHORUS WAITING AREA (BLACK SEA) — ARRIVAL</span>
+      </div>
+      <div class="card-b">
+        <div class="note"><span class="t-ar">يُرسَل هذا التقرير <b>فور الاتصال بـ VTS والتوقف</b> في منطقة الانتظار (الانجراف أو المخطاف) قبل عبور البوسفور جنوباً.</span><span class="t-en">Send this report <b>immediately upon VTS contact and stopping</b> at the waiting area (drifting or anchorage) before the southbound Bosphorus passage.</span></div>
+        <div class="item"><span class="badge">1</span><div class="item-body">
+          <span class="lbl">وقت الاتصال بـ VTS عند 12 ميلاً بحرياً</span>
+          <span class="lbl-en">VTS contacted at 12 NM</span>
+          <div class="dt-row"><input type="date" id="d10_1d"><input type="time" id="d10_1t"></div>
+        </div></div>
+        <div class="item"><span class="badge">2</span><div class="item-body">
+          <span class="lbl">وقت التوقف في منطقة الانتظار</span>
+          <span class="lbl-en">Time the vessel stopped at the waiting area</span>
+          <div class="dt-row"><input type="date" id="d10_2d"><input type="time" id="d10_2t"></div>
+        </div></div>
+        <div class="item"><span class="badge">3</span><div class="item-body">
+          <span class="lbl">حالة الانتظار</span>
+          <span class="lbl-en">Waiting mode</span>
+          <div class="dt-row">
+            <select id="d10_3m" style="min-width:220px">
+              <option value="DRIFT">الانجراف (Drifting)</option>
+              <option value="ANCHOR">الرسو بالمخطاف (At anchor)</option>
+            </select>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="card preview-card">
+      <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
+      <div class="preview" id="p10"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="copyReport('p10',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t10')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ 5) BOSPHORUS SOUTHBOUND ============ -->
   <section class="panel" id="t5">
     <div class="card">
@@ -619,6 +661,72 @@
     </div>
   </section>
 
+
+  <!-- ============ 11) BOSPHORUS SB PASSAGE + ANCHORAGE ARRIVAL ============ -->
+  <section class="panel" id="t11">
+    <div class="card">
+      <div class="card-h">
+        <h2>٣ — تقرير عبور البوسفور والوصول للمخطاف</h2>
+        <span class="en">BOSPHORUS PASSAGE &amp; ANCHORAGE ARRIVAL</span>
+      </div>
+      <div class="card-b">
+        <div class="note"><span class="t-ar">القسم الأول: تفاصيل العبور — يُرسَل <b>فور الخروج من البوسفور</b>. القسم الثاني: تقرير الوصول — <b>فور إلقاء المرساة</b>.</span><span class="t-en">Section 1: passage details — send <b>immediately upon clearing the Bosphorus</b>. Section 2: arrival report — <b>upon dropping anchor</b>.</span></div>
+        <div class="item"><span class="badge">1</span><div class="item-body">
+          <span class="lbl">وقت انتهاء الانجراف</span>
+          <span class="lbl-en">End of drifting</span>
+          <div class="dt-row"><input type="date" id="d11_1d"><input type="time" id="d11_1t"></div>
+        </div></div>
+        <div class="item"><span class="badge">2</span><div class="item-body">
+          <span class="lbl">وقت دخول البوسفور</span>
+          <span class="lbl-en">Entered Bosphorus</span>
+          <div class="dt-row"><input type="date" id="d11_2d"><input type="time" id="d11_2t"></div>
+        </div></div>
+        <div class="item"><span class="badge">3</span><div class="item-body">
+          <span class="lbl">وقت الخروج من البوسفور دون مرشد</span>
+          <span class="lbl-en">Cleared Bosphorus without pilot</span>
+          <div class="dt-row"><input type="date" id="d11_3d"><input type="time" id="d11_3t"></div>
+        </div></div>
+        <div class="item"><span class="badge">4</span><div class="item-body">
+          <span class="lbl">الوقت المتوقَّع للوصول إلى مخطاف إسطنبول (ETA)</span>
+          <span class="lbl-en">ETA Istanbul Anchorage</span>
+          <div class="dt-row"><input type="date" id="d11_4d"><input type="time" id="d11_4t"></div>
+        </div></div>
+        <div class="item"><span class="badge">5</span><div class="item-body">
+          <span class="lbl">الغرض من التوجّه إلى مخطاف إسطنبول</span>
+          <span class="lbl-en">Purpose of the call</span>
+          <div class="dt-row">
+            <select id="d11_5p" style="min-width:190px">
+              <option value="">— اختر الغرض —</option>
+              <option value="BUNKERING">BUNKERING — تزوّد بالوقود</option>
+              <option value="CREW CHANGE">CREW CHANGE — تبديل طاقم</option>
+              <option value="SPARES DELIVERY">SPARES DELIVERY — استلام قطع غيار</option>
+              <option value="PROVISIONS">PROVISIONS — تموين</option>
+              <option value="OTHER">OTHER — غير ذلك (اكتب بجانبه)</option>
+            </select>
+            <input type="text" id="d11_5o" placeholder="تفاصيل أخرى (اختياري)" style="width:180px;text-transform:uppercase">
+          </div>
+        </div></div>
+        <div class="item"><span class="badge">6</span><div class="item-body">
+          <span class="lbl">التاريخ والوقت الفعليان للرسو في المخطاف</span>
+          <span class="lbl-en">Actual date &amp; time of dropping anchor</span>
+          <div class="dt-row"><input type="date" id="d11_6d"><input type="time" id="d11_6t"></div>
+        </div></div>
+        <div class="item"><span class="badge">7</span><div class="item-body">
+          <span class="lbl">الوقت المتوقَّع لوصول البارج (بعد كم ساعة)</span>
+          <span class="lbl-en">Expected barge alongside — hours later</span>
+          <div class="dt-row"><input type="number" id="d11_7h" min="0" step="0.5" placeholder="عدد الساعات" style="width:150px"></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="card preview-card">
+      <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
+      <div class="preview" id="p11"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="copyReport('p11',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t11')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ 7) DARDANELLES PRE-ADVICE ============ -->
   <section class="panel" id="t7">
@@ -1095,7 +1203,106 @@ Revert with actual passage details upon completion.`;
   return {en, ar};
 }
 
-const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5,p6:build6,p7:build7,p8:build8,p9:build9};
+function build10(){
+  const a=dt('d10_1'), b=dt('d10_2');
+  const mode = $('d10_3m').value;
+  const modeEn = mode === 'ANCHOR' ? 'dropped anchor' : 'commenced drifting';
+  const modeAr = mode === 'ANCHOR' ? 'ألقت المرساة في المخطاف' : 'بدأت الانجراف';
+  const en = `M/V ${vessel()} — BOSPHORUS WAITING AREA — ARRIVAL REPORT
+
+Good day,
+
+Please be advised of the following:
+
+- ${a.d} — ${a.t} hrs: VTS contacted at 12 NM.
+- ${b.d} — ${b.t} hrs: Vessel stopped and ${modeEn}, awaiting her passage turn.
+
+Keep you posted.`;
+  const ar = `M/V ${vessel()} — منطقة الانتظار — البوسفور — تقرير الوصول
+
+تحية طيبة،
+
+نحيطكم علماً بما يلي:
+
+- بتاريخ ${a.d} — الساعة ${a.t}: الاتصال بمحطة VTS عند مسافة 12 ميلاً بحرياً.
+- بتاريخ ${b.d} — الساعة ${b.t}: توقفت السفينة و${modeAr} بانتظار دورها في العبور.
+
+وسنوافيكم بأي مستجدات.`;
+  return {en, ar};
+}
+
+function purpose11(){
+  let sel = $('d11_5p').value;
+  const other = $('d11_5o').value.trim().toUpperCase();
+  let en, ar;
+  if(sel === 'OTHER' && other){ en = other; ar = other; }
+  else if(sel && other){ en = sel+' / '+other; ar = (PURPOSE_AR[sel]||sel)+' / '+other; }
+  else if(sel){ en = sel; ar = PURPOSE_AR[sel]||sel; }
+  else{
+    en = `<span class="ph">[BUNKERING / JOB / OPERATION]</span>`;
+    ar = phAr('[تزوّد بالوقود / عملية / خدمة]');
+  }
+  return {en, ar};
+}
+function build11(){
+  const a=dt('d11_1'), b=dt('d11_2'), c=dt('d11_3'), e=dt('d11_4'), f=dt('d11_6');
+  const pp = purpose11();
+  const hrsVal = $('d11_7h').value;
+  const hrs = hrsVal || `<span class="ph">..</span>`;
+  const en = `M/V ${vessel()} — BOSPHORUS SOUTHBOUND PASSAGE REPORT
+
+Good day,
+
+Please find below the actual times of Bosphorus passage:
+
+- ${a.d} — ${a.t} hrs: End of drifting.
+- ${b.d} — ${b.t} hrs: Entered Bosphorus.
+- ${c.d} — ${c.t} hrs: Cleared Bosphorus without pilot.
+
+ETA Istanbul Anchorage: ${e.d} — ${e.t} hrs.
+Vessel proceeded to Istanbul Anchorage for ${pp.en}.
+
+------------------------------
+
+ISTANBUL ANCHORAGE — ARRIVAL REPORT
+
+Good day,
+
+Kindly note that M/V ${vessel()} arrived and dropped anchor at Istanbul
+today, ${f.d} at ${f.t} hrs.
+
+Bunker barge is expected to come alongside approximately ${hrs} hrs later.
+
+Keep you posted.`;
+  const ar = `M/V ${vessel()} — تقرير عبور البوسفور جنوباً
+
+تحية طيبة،
+
+نوافيكم أدناه بالأوقات الفعلية لعبور مضيق البوسفور:
+
+- بتاريخ ${a.d} — الساعة ${a.t}: انتهاء الانجراف.
+- بتاريخ ${b.d} — الساعة ${b.t}: دخول مضيق البوسفور.
+- بتاريخ ${c.d} — الساعة ${c.t}: الخروج من البوسفور دون مرشد.
+
+الوقت المتوقَّع للوصول إلى مخطاف إسطنبول: ${e.d} — الساعة ${e.t}.
+تتوجّه السفينة إلى مخطاف إسطنبول بغرض: ${pp.ar}.
+
+------------------------------
+
+مخطاف إسطنبول — تقرير الوصول
+
+تحية طيبة،
+
+نحيطكم علماً بأن السفينة M/V ${vessel()} وصلت وألقت المرساة في مخطاف إسطنبول
+اليوم بتاريخ ${f.d} الساعة ${f.t}.
+
+من المتوقَّع وصول بارج الوقود إلى جانب السفينة بعد ${hrs} ساعة تقريباً.
+
+وسنوافيكم بأي مستجدات.`;
+  return {en, ar};
+}
+
+const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5,p6:build6,p7:build7,p8:build8,p9:build9,p10:build10,p11:build11};
 
 /* ---------- Render ---------- */
 function renderAll(){
@@ -1125,7 +1332,9 @@ function renderAll(){
 const PLACEHOLDERS = {
   vessel: {both:'مثال: RIZIK BEY', ar:'مثال: RIZIK BEY', en:'e.g. RIZIK BEY'},
   d2_2h:  {both:'عدد الساعات', ar:'عدد الساعات', en:'Hours'},
-  d5_7o:  {both:'تفاصيل أخرى (اختياري)', ar:'تفاصيل أخرى (اختياري)', en:'Other details (optional)'}
+  d5_7o:  {both:'تفاصيل أخرى (اختياري)', ar:'تفاصيل أخرى (اختياري)', en:'Other details (optional)'},
+  d11_5o: {both:'تفاصيل أخرى (اختياري)', ar:'تفاصيل أخرى (اختياري)', en:'Other details (optional)'},
+  d11_7h: {both:'عدد الساعات', ar:'عدد الساعات', en:'Hours'}
 };
 const PURPOSE_OPTS = {
   both:['— اختر الغرض —','BUNKERING — تزوّد بالوقود','CREW CHANGE — تبديل طاقم','SPARES DELIVERY — استلام قطع غيار','PROVISIONS — تموين','OTHER — غير ذلك'],
@@ -1151,6 +1360,10 @@ function applyLang(){
   };
   const sel8 = $('d8_2m');
   if(sel8) [...sel8.options].forEach((opt,i)=>{ opt.text = WAIT_OPTS[LANG][i]; });
+  const sel10 = $('d10_3m');
+  if(sel10) [...sel10.options].forEach((opt,i)=>{ opt.text = WAIT_OPTS[LANG][i]; });
+  const sel11 = $('d11_5p');
+  if(sel11) [...sel11.options].forEach((opt,i)=>{ opt.text = labels[i]; });
   renderAll();
   renderMap();
 }
@@ -1213,9 +1426,9 @@ const MAP_PINS = {
     {n:5, x:74.2, y:33.5, tab:'t4', ar:'نهاية البوسفور في البحر الأسود — إرسال تقرير العبور فوراً', en:'End of Bosphorus at the Black Sea — send passage report immediately', sendAr:'التقرير: عبور البوسفور شمالاً', sendEn:'Report: Bosphorus Northbound'}
   ],
   sb: [
-    {n:1, x:76.9, y:31.5, tab:'t5', ar:'نهاية البوسفور — إرسال تقرير العبور فوراً', en:'End of Bosphorus — send passage report immediately', sendAr:'التقرير: عبور البوسفور جنوباً', sendEn:'Report: Bosphorus Southbound'},
-    {n:2, x:74.6, y:36, tab:'t9', ar:'بعد انتهاء السبلاي — تقديم الجاهزية ثم الإشعار المسبق لعبور البوسفور', en:'After supply completion — tender readiness, then send the Bosphorus pre-advice', sendAr:'التقرير: الجاهزية + الإشعار المسبق', sendEn:'Report: Readiness + Pre-Advice'},
-    {n:3, x:66, y:52, tab:'t2', ar:'مخطاف إسطنبول — فور إلقاء المرساة', en:'Istanbul Anchorage — upon dropping anchor', sendAr:'التقرير: تقرير الوصول', sendEn:'Report: Anchorage Arrival Report'},
+    {n:1, x:76.9, y:31.5, tab:'t10', ar:'البحر الأسود — الاتصال بـ VTS والتوقف في منطقة الانتظار (انجراف أو مخطاف)', en:'Black Sea — VTS contact and stop at the waiting area (drifting or at anchor)', sendAr:'التقرير: الوصول إلى منطقة الانتظار', sendEn:'Report: Waiting Area Arrival'},
+    {n:2, x:74.6, y:36, tab:'t3', ar:'قبل دخول البوسفور — يُرسَل الإشعار المسبق', en:'Before entering the Bosphorus — send the pre-advice', sendAr:'التقرير: الإشعار المسبق', sendEn:'Report: Pre-Advice'},
+    {n:3, x:66, y:52, tab:'t11', ar:'تفاصيل العبور فور الخروج من البوسفور + تقرير الوصول للمخطاف فور الرسو', en:'Passage details upon clearing the Bosphorus + anchorage arrival report upon anchoring', sendAr:'التقرير: تقرير العبور + الوصول للمخطاف', sendEn:'Report: Passage + Anchorage Arrival'},
     {n:4, x:37, y:50.5, tab:'t7', ar:'قبل مدخل الدردنيل — يُرسَل الإشعار المسبق، مع وقت رمي المخطاف إن توقفت السفينة', en:'Before the Dardanelles entrance — send pre-advice, with anchoring time if the vessel stopped', sendAr:'التقرير: الإشعار المسبق للدردنيل', sendEn:'Report: Dardanelles Pre-Advice'},
     {n:5, x:20.6, y:74.5,   tab:'t6', ar:'نهاية الدردنيل — إرسال تقرير العبور فوراً', en:'End of Dardanelles — send passage report immediately', sendAr:'التقرير: عبور الدردنيل جنوباً', sendEn:'Report: Dardanelles Southbound'}
   ]
