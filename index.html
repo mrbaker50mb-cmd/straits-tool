@@ -293,7 +293,7 @@
     <button data-tab="t8" class="active"><span class="num">1</span> <span class="t-ar">منطقة الانتظار — الدردنيل</span><span class="t-en">Dardanelles Waiting Area</span></button>
     <button data-tab="t1"><span class="num">2</span> <span class="t-ar">عبور الدردنيل شمالاً</span><span class="t-en">Dardanelles Northbound</span></button>
     <button data-tab="t2"><span class="num">3</span> <span class="t-ar">مخطاف إسطنبول — تقرير الوصول</span><span class="t-en">Istanbul Anchorage — Arrival</span></button>
-    <button data-tab="t3"><span class="num">4</span> <span class="t-ar">البوسفور — الإشعار المسبق</span><span class="t-en">Bosphorus — Pre-Advice</span></button>
+    <button data-tab="t9"><span class="num">4</span> <span class="t-ar">الجاهزية والإشعار المسبق — البوسفور</span><span class="t-en">Readiness &amp; Pre-Advice — Bosphorus</span></button>
     <button data-tab="t4"><span class="num">5</span> <span class="t-ar">عبور البوسفور شمالاً</span><span class="t-en">Bosphorus Northbound</span></button>
     <span class="part-tag"><span class="t-ar">القسم الثاني — من البحر الأسود إلى البحر المتوسط (جنوباً)</span><span class="t-en">Part B — Black Sea → Mediterranean (Southbound)</span></span>
     <button data-tab="t3"><span class="num">1</span> <span class="t-ar">البوسفور — الإشعار المسبق</span><span class="t-en">Bosphorus — Pre-Advice</span></button>
@@ -454,6 +454,37 @@
       <div class="actions">
         <button class="btn btn-gold" onclick="copyReport('p3',this)"><span class="t-ar">📋 نسخ الإشعار</span><span class="t-en">📋 Copy Advice</span></button>
         <button class="btn btn-ghost" onclick="clearTab('t3')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9) READINESS + BOSPHORUS PRE-ADVICE (NB) ============ -->
+  <section class="panel" id="t9">
+    <div class="card">
+      <div class="card-h">
+        <h2>٤ — الجاهزية والإشعار المسبق — البوسفور</h2>
+        <span class="en">READINESS &amp; PRE-ADVICE — BOSPHORUS</span>
+      </div>
+      <div class="card-b">
+        <div class="note"><span class="t-ar">القسم الأول: انتهاء السبلاي وتقديم الجاهزية. القسم الثاني: الإشعار المسبق — يُرسَل <b>قبل دخول البوسفور</b>.</span><span class="t-en">Section 1: supply completed &amp; readiness tendered. Section 2: pre-advice — sent <b>BEFORE entering the Bosphorus</b>.</span></div>
+        <div class="item"><span class="badge">1</span><div class="item-body">
+          <span class="lbl">وقت انتهاء عملية السبلاي وتقديم الجاهزية لعبور البوسفور</span>
+          <span class="lbl-en">Supply completed &amp; readiness tendered for Bosphorus passage</span>
+          <div class="dt-row"><input type="date" id="d9_1d"><input type="time" id="d9_1t"></div>
+        </div></div>
+        <div class="item"><span class="badge">2</span><div class="item-body">
+          <span class="lbl">الوقت المقرَّر لدخول البوسفور</span>
+          <span class="lbl-en">Scheduled Bosphorus entry date &amp; time</span>
+          <div class="dt-row"><input type="date" id="d9_2d"><input type="time" id="d9_2t"></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="card preview-card">
+      <div class="card-h"><h2>معاينة التقرير</h2><span class="en">Report Preview</span></div>
+      <div class="preview" id="p9"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="copyReport('p9',this)"><span class="t-ar">📋 نسخ التقرير</span><span class="t-en">📋 Copy Report</span></button>
+        <button class="btn btn-ghost" onclick="clearTab('t9')"><span class="t-ar">مسح الحقول</span><span class="t-en">Clear Fields</span></button>
       </div>
     </div>
   </section>
@@ -1023,7 +1054,48 @@ Keep you posted.`;
   return {en, ar};
 }
 
-const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5,p6:build6,p7:build7,p8:build8};
+function build9(){
+  const a=dt('d9_1'), b=dt('d9_2');
+  const en = `M/V ${vessel()} — READINESS FOR BOSPHORUS PASSAGE
+
+Good day,
+
+Kindly note that M/V ${vessel()} completed her supply operation and
+tendered readiness for the Bosphorus passage at ${a.t} hrs on ${a.d}.
+The vessel is now awaiting her scheduled entry time to the Bosphorus.
+
+------------------------------
+
+BOSPHORUS PASSAGE — PRE-ADVICE
+
+Good day,
+
+Please be advised that M/V ${vessel()} is scheduled to enter the
+Bosphorus Strait at ${b.t} hrs on ${b.d}.
+
+Revert with actual passage details upon completion.`;
+  const ar = `M/V ${vessel()} — الجاهزية لعبور البوسفور
+
+تحية طيبة،
+
+نحيطكم علماً بأن السفينة M/V ${vessel()} أنهت عملية السبلاي وقدّمت
+جاهزيتها لعبور البوسفور الساعة ${a.t} بتاريخ ${a.d}.
+والسفينة الآن بانتظار موعد الدخول إلى مضيق البوسفور.
+
+------------------------------
+
+عبور البوسفور — إشعار مسبق
+
+تحية طيبة،
+
+نحيطكم علماً بأن السفينة M/V ${vessel()} من المقرَّر أن تدخل مضيق البوسفور
+الساعة ${b.t} بتاريخ ${b.d}.
+
+وسنوافيكم بتفاصيل العبور الفعلية فور إتمامه.`;
+  return {en, ar};
+}
+
+const builders = {p1:build1,p2:build2,p3:build3,p4:build4,p5:build5,p6:build6,p7:build7,p8:build8,p9:build9};
 
 /* ---------- Render ---------- */
 function renderAll(){
@@ -1137,7 +1209,7 @@ const MAP_PINS = {
     {n:1, x:18.5, y:76.5, tab:'t8', ar:'منطقة الانتظار قبل الدردنيل — يُرسَل تقرير الوصول (انجراف أو مخطاف)', en:'Waiting area before the Dardanelles — send arrival report (drifting or at anchor)', sendAr:'التقرير: الوصول إلى منطقة الانتظار', sendEn:'Report: Waiting Area Arrival'},
     {n:2, x:21.9, y:71.3, tab:'t1', ar:'بداية الدردنيل — الاتصال بـ VTS عند 12 ميلاً، ويُرسَل التقرير فور إتمام العبور', en:'Beginning of Dardanelles — VTS contact at 12 NM; report sent upon completing the passage', sendAr:'التقرير: عبور الدردنيل شمالاً', sendEn:'Report: Dardanelles Northbound'},
     {n:3, x:66, y:52, tab:'t2', ar:'مخطاف إسطنبول — تقرير الوصول فور الرسو', en:'Istanbul Anchorage — arrival report upon anchoring', sendAr:'التقرير: تقرير الوصول', sendEn:'Report: Anchorage Arrival Report'},
-    {n:4, x:67.5, y:56.5, tab:'t3', ar:'قبل الإبحار نحو البوسفور — يُرسَل الإشعار المسبق', en:'Before proceeding to the Bosphorus — send the pre-advice', sendAr:'التقرير: الإشعار المسبق', sendEn:'Report: Pre-Advice'},
+    {n:4, x:67.5, y:56.5, tab:'t9', ar:'بعد انتهاء السبلاي — تقديم الجاهزية ثم الإشعار المسبق لعبور البوسفور', en:'After supply completion — tender readiness, then send the Bosphorus pre-advice', sendAr:'التقرير: الجاهزية + الإشعار المسبق', sendEn:'Report: Readiness + Pre-Advice'},
     {n:5, x:74.2, y:33.5, tab:'t4', ar:'نهاية البوسفور في البحر الأسود — إرسال تقرير العبور فوراً', en:'End of Bosphorus at the Black Sea — send passage report immediately', sendAr:'التقرير: عبور البوسفور شمالاً', sendEn:'Report: Bosphorus Northbound'}
   ],
   sb: [
