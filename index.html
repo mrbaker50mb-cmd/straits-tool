@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Y SHIP — أداة تقارير عبور المضائق التركية | Ref 9/2026</title>
+<title>Y SHIP — Turkish Straits Passage Reporting Tool | Ref 9/2026</title>
 <style>
   :root{
     --navy:#132a47;
@@ -241,7 +241,7 @@
   @media(max-width:700px){.map-pin{width:24px;height:24px;font-size:11px}}
 </style>
 </head>
-<body class="lang-both">
+<body class="lang-en">
 
 <header>
   <div class="hdr-row">
@@ -275,14 +275,7 @@
         <option value="SUPER SARKAS"><option value="YASMINA"><option value="QUEEN GHAIDAA">
       </datalist>
     </div>
-    <div class="field">
-      <label><span class="t-ar">اللغة</span><span class="t-en"> Language</span></label>
-      <div class="lang-seg" id="langSeg">
-        <button data-lang="both" class="active">عربي + English</button>
-        <button data-lang="en">English</button>
-        <button data-lang="ar">عربي</button>
-      </div>
-    </div>
+
   </div>
 
 
@@ -522,16 +515,6 @@
       </div>
       <div class="card-b">
         <div class="item"><span class="badge">1</span><div class="item-body">
-          <span class="lbl">وقت الوصول والرسو</span>
-          <span class="lbl-en">Arrived and anchored</span>
-          <div class="dt-row"><input type="date" id="d4_1d"><input type="time" id="d4_1t"></div>
-        </div></div>
-        <div class="item"><span class="badge">2</span><div class="item-body">
-          <span class="lbl">وقت الإبحار من المخطاف</span>
-          <span class="lbl-en">Sailed from anchorage</span>
-          <div class="dt-row"><input type="date" id="d4_2d"><input type="time" id="d4_2t"></div>
-        </div></div>
-        <div class="item"><span class="badge">3</span><div class="item-body">
           <span class="lbl">وقت دخول البوسفور</span>
           <span class="lbl-en">Entered Bosphorus</span>
           <div class="dt-row"><input type="date" id="d4_3d"><input type="time" id="d4_3t"></div>
@@ -552,12 +535,12 @@
             </div>
           </div>
         </div></div>
-        <div class="item"><span class="badge">4</span><div class="item-body">
+        <div class="item"><span class="badge">2</span><div class="item-body">
           <span class="lbl">وقت الخروج من البوسفور</span>
           <span class="lbl-en">Cleared Bosphorus</span>
           <div class="dt-row"><input type="date" id="d4_4d"><input type="time" id="d4_4t"></div>
         </div></div>
-        <div class="item"><span class="badge">5</span><div class="item-body">
+        <div class="item"><span class="badge">3</span><div class="item-body">
           <span class="lbl">الميناء التالي والوقت المتوقَّع للوصول (ETA)</span>
           <span class="lbl-en">Next port &amp; ETA</span>
           <div class="dt-row">
@@ -857,7 +840,7 @@
 <script>
 /* ---------- Helpers ---------- */
 const $ = id => document.getElementById(id);
-let LANG = 'both'; // both | en | ar
+let LANG = 'en'; // English-only build
 
 function fmtDate(v){
   if(!v) return null;
@@ -1019,8 +1002,6 @@ Good day,
 
 Please find below the actual times of Bosphorus passage:
 
-- ${a.d} — ${a.t} hrs: Arrived and anchored.
-- ${b.d} — ${b.t} hrs: Sailed from anchorage.
 - ${c.d} — ${c.t} hrs: Entered Bosphorus.
 ${clearEn}
 
@@ -1033,8 +1014,6 @@ ETA ${portEn}: ${f.d} — ${f.t} hrs.`;
 
 نوافيكم أدناه بالأوقات الفعلية لعبور مضيق البوسفور:
 
-- بتاريخ ${a.d} — الساعة ${a.t}: الوصول والرسو في المخطاف.
-- بتاريخ ${b.d} — الساعة ${b.t}: رفع المرساة والإبحار من المخطاف.
 - بتاريخ ${c.d} — الساعة ${c.t}: دخول مضيق البوسفور.
 ${clearAr}
 
